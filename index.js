@@ -1,7 +1,10 @@
 const mixpanelToSlack = require('mixpanel-to-slack')
+const dotenv= require('dotenv')
+dotenv.config()
+const {SLACK_WEBHOOK, MIXPANEL_SECRET} = process.env
 
-const slackWebhookUri = 'https://hooks.slack.com/services/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'
-const mixpanelApiSecret = 'c8e735e111486aed466fd2965faf4850'
+const slackWebhookUri = SLACK_WEBHOOK
+const mixpanelApiSecret = MIXPANEL_SECRET
 const interval = 5000
 
 const filter = ({ $ts, event, properties }) => (
