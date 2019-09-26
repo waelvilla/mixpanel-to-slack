@@ -8,7 +8,7 @@ const mixpanelApiSecret = MIXPANEL_SECRET
 const interval = 5000
 
 const filter = ({ $ts, event, properties }) => (
-  properties['$name']
+  true
 )
 
 const map = ({ $ts, event, properties }) => ({
