@@ -7,9 +7,14 @@ const slackWebhookUri = SLACK_WEBHOOK
 const mixpanelApiSecret = MIXPANEL_SECRET
 const interval = 5000
 
-const filter = ({ $ts, event, properties }) => (
-  true
-)
+const filter = ({ $ts, event, properties }) => {
+  // properties['role']=='Patient'
+  if(event!="Login"){  
+    return true
+  }
+  return false  
+}
+
 
 const map = ({ $ts, event, properties }) => ({
   $ts,
